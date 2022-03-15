@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Web Demo</string>
+    <string name="title_activity_webview">WebviewActivity</string>
+    <string name="label_url">URL:</string>
+    <string name="default_test_url">https://www.vmware.com</string>
+    <string name="label_start_custom_tab">Open Chrome Custom Tab</string>
+    <string name="label_start_web_view">Open Android Web View</string>
+</resources>
