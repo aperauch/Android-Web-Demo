@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         appConfig = new AppConfig(getApplicationContext());
 
         configureIntelligenceSdk();
-        setUrlEditTextView();
 
         if (usingIntelligenceSdk) {
             Crittercism.leaveBreadcrumb("Main_Activity_Screen");
@@ -65,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button startWebView = (Button) findViewById(R.id.start_web_view);
         startWebView.setOnClickListener(this);
+
+        setUrlEditTextView();
 
         // Check if other browser apps support Chrome Custom Tabs
         getCustomTabsPackages(this);
