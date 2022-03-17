@@ -1,0 +1,6 @@
+<characteristic type="com.airwatch.android.androidwork.app:com.aron.webdemo" uuid="1abc235c-03b6-4ea7-a94c-079f5a8bc123">
+    <parm name="INTELLIGENCE_APP_ID" value="ENTER_INTELLIENCE_APP_ID_HERE" />
+    <parm name="INTELLIGENCE_APP_LOGGING_LEVEL" value="DEBUG" />
+    <parm name="URL" value="https://www.vmware.com" />
+    <parm name="ENROLLMENT_USERNAME" value="{EnrollmentUser}" />
+</characteristic>

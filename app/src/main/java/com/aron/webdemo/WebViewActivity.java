@@ -29,6 +29,10 @@ public class WebViewActivity extends AppCompatActivity {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
+        webSettings.setAllowContentAccess(true);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setAppCacheEnabled(true);
+        webSettings.setSupportMultipleWindows(true);
         setTitle(url);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

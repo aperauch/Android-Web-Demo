@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Web Demo</string>
+    <string name="app_name">Web Demo 2</string>
     <string name="title_activity_webview">WebviewActivity</string>
     <string name="label_url">URL:</string>
     <string name="default_test_url">https://www.vmware.com</string>
