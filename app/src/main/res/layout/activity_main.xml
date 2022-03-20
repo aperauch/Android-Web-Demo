@@ -48,8 +48,18 @@
         android:layout_marginTop="60dp"
         android:text="@string/label_start_custom_tab"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/start_web_view" />
+
+    <Button
+        android:id="@+id/start_crash_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/label_start_crash_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_custom_tab" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

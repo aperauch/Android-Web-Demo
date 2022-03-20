@@ -1,41 +1,30 @@
 package com.aron.webdemo;
 
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
-
-import androidx.annotation.NonNull;
+import static com.aron.webdemo.constants.Constants.*;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.browser.customtabs.CustomTabsClient;
 import androidx.browser.customtabs.CustomTabsIntent;
-import androidx.browser.customtabs.CustomTabsServiceConnection;
-import androidx.browser.customtabs.CustomTabsSession;
-
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crittercism.app.Crittercism;
-import com.google.android.material.textfield.TextInputEditText;
+import com.crittercism.app.CrittercismConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private final String TAG = "WebDemo-MainActivity";
     private boolean usingIntelligenceSdk;
     private AppConfig appConfig;
     private String intelligenceAppId;
@@ -59,11 +48,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Buttons
         Button startCustomTab = (Button) findViewById(R.id.start_custom_tab);
         startCustomTab.setOnClickListener(this);
-
         Button startWebView = (Button) findViewById(R.id.start_web_view);
         startWebView.setOnClickListener(this);
+        Button startCrashActivity = (Button) findViewById(R.id.start_crash_activity);
+        startCrashActivity.setOnClickListener(this);
 
         setUrlEditTextView();
 
@@ -83,8 +74,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.i(TAG, "Intelligence App Logging Level App Config:  " + intelligenceAppLoggingLevel);
             Log.i(TAG, "WS1 UEM Enrolled User Username App Config:  " + enrollmentUsername);
 
-            // Set Intelligence app ID for SDK
-            Crittercism.initialize(getApplicationContext(), intelligenceAppId);
+            // Set WS1 Intelligence SDK config settings
+            CrittercismConfig crittercismConfig = new CrittercismConfig();
+            crittercismConfig.setAllowsCellularAccess(true);
+            crittercismConfig.setLogcatReportingEnabled(true);
+            crittercismConfig.setReportLocationData(true);
+            crittercismConfig.setServiceMonitoringEnabled(true);
+
+            // Initialize WS1 Intelligence SDK with Intelligence app ID and config settings
+            Crittercism.initialize(getApplicationContext(), intelligenceAppId, crittercismConfig);
+
+            // Log Intelligence SDK config setting values
+            Log.i(TAG, "Intelligence SDK Opt-Out Status: " + Crittercism.getOptOutStatus());
+            Log.i(TAG, "Intelligence SDK Logcat Reporting Enabled: " + crittercismConfig.isLogcatReportingEnabled());
+            Log.i(TAG, "Intelligence SDK Service Monitoring Enabled: " + crittercismConfig.isServiceMonitoringEnabled());
 
             // Set Intelligence SDK app logging level
             switch (intelligenceAppLoggingLevel) {
@@ -152,6 +155,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.start_web_view:
                 onClickStartWebView(url);
                 break;
+            case R.id.start_crash_activity:
+                onClickStartCrashActivity();
             default:
                 break;
         }
@@ -179,10 +184,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i(TAG, "Opening Web View for URL " + url);
 
         Intent intent = new Intent(this, WebViewActivity.class);
-        intent.putExtra(WebViewActivity.EXTRA_URL, url);
+        intent.putExtra(EXTRA_URL, url);
 
         if (usingIntelligenceSdk) {
-            intent.putExtra(WebViewActivity.EXTRA_USE_INTELLIGENCE_SDK, true);
+            intent.putExtra(EXTRA_USE_INTELLIGENCE_SDK, true);
+        }
+
+        startActivity(intent);
+    }
+
+    private void onClickStartCrashActivity() {
+        Log.i(TAG, "Opening Crash Activity");
+        Intent intent = new Intent(this, CrashActivity.class);
+
+        if (usingIntelligenceSdk) {
+            intent.putExtra(EXTRA_USE_INTELLIGENCE_SDK, true);
         }
 
         startActivity(intent);

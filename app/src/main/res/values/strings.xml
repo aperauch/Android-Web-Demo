@@ -1,8 +1,12 @@
 <resources>
-    <string name="app_name">Web Demo 2</string>
+    <string name="app_name">Web Demo</string>
     <string name="title_activity_webview">WebviewActivity</string>
     <string name="label_url">URL:</string>
     <string name="default_test_url">https://www.vmware.com</string>
     <string name="label_start_custom_tab">Open Chrome Custom Tab</string>
     <string name="label_start_web_view">Open Android Web View</string>
+    <string name="title_activity_crash">Crash Activity</string>
+    <string name="label_start_crash_activity">Crash This App</string>
+    <string name="label_fatal_crash_button">Cause Fatal App Crash</string>
+    <string name="label_non_fatal_crash_button">Cause Non-Fatal Handled Exception</string>
 </resources>

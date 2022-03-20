@@ -1,7 +1,7 @@
 package com.aron.webdemo;
 
+import static com.aron.webdemo.constants.Constants.*;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,10 +13,7 @@ import com.crittercism.app.Crittercism;
 
 public class WebViewActivity extends AppCompatActivity {
 
-    private final String TAG = "WebDemo-WebViewActivity";
     private boolean usingIntelligenceSdk;
-    public static final String EXTRA_URL = "extra.url";
-    public static final String EXTRA_USE_INTELLIGENCE_SDK = "extra.useIntelligence";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +38,6 @@ public class WebViewActivity extends AppCompatActivity {
             Crittercism.leaveBreadcrumb("Web_View_Created");
             Crittercism.beginUserFlow("Web_View_User_Flow");
             Crittercism.instrumentWebView(webView);
-            Crittercism.getNetworkInstrumentation();
         }
 
         webView.loadUrl(url);
