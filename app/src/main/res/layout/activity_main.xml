@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="350dp"
+        android:layout_width="375dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="@string/label_url"
@@ -20,7 +20,7 @@
 
     <EditText
         android:id="@+id/url"
-        android:layout_width="350dp"
+        android:layout_width="375dp"
         android:layout_height="wrap_content"
         android:inputType="textUri"
         android:text="@string/default_test_url"
@@ -29,12 +29,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:layout_editor_absoluteX="16dp" />
 
+
     <Button
         android:id="@+id/start_web_view"
-        android:layout_width="wrap_content"
+        android:layout_width="375dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:text="@string/label_start_web_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,24 +43,36 @@
 
     <Button
         android:id="@+id/start_custom_tab"
-        android:layout_width="wrap_content"
+        android:layout_width="375dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:text="@string/label_start_custom_tab"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/start_web_view" />
 
-    <Button
-        android:id="@+id/start_crash_activity"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="375dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/label_start_crash_activity"
+        android:text="@string/labal_ws1_intel_sdk_textview"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        app:layout_constraintBottom_toTopOf="@+id/start_crash_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_custom_tab" />
+        app:layout_constraintTop_toBottomOf="@+id/start_custom_tab"
+        app:layout_constraintVertical_bias="0.911" />
+
+    <Button
+        android:id="@+id/start_crash_activity"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="244dp"
+        android:text="@string/label_start_crash_activity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

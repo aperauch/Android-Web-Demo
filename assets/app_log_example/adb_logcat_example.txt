@@ -1,0 +1,21 @@
+I WebDemo : App crashed on previous run:  false
+I WebDemo : Opening Web View for URL https://www.vmware.com
+I WebDemo : App crashed on previous run:  false
+I WebDemo : App crashed on previous run:  false
+I WebDemo : Opening Chrome Custom Tab for URL https://www.vmware.com
+I WebDemo : App crashed on previous run:  false
+I WebDemo : Opening Crash Activity
+I WebDemo : Crash Acitivty started.
+I WebDemo : Causing NullPointerException.
+I WebDemo : NullPointerException handled.
+W WebDemo : Causing fatal app crash due to ArrayIndexOutOfBoundsException exception.
+I WebDemo : Intelligence App ID App Config:  YOUR_INTELLIENCE_APP_ID
+I WebDemo : Intelligence App Logging Level App Config:  DEBUG
+I WebDemo : WS1 UEM Enrolled User Username App Config:  aaperauch
+I WebDemo : Intelligence SDK Opt-Out Status: false
+I WebDemo : Intelligence SDK Logcat Reporting Enabled: true
+I WebDemo : Intelligence SDK Service Monitoring Enabled: false
+I WebDemo : App crashed on previous run:  true
+I WebDemo : Starting URL App Config:  https://www.vmware.com
+I WebDemo-MainActivity: Found package that supports Chrome Custom Tabs:  com.android.chrome
+I WebDemo : App crashed on previous run:  true

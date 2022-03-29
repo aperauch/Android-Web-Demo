@@ -6,7 +6,8 @@
     <string name="label_start_custom_tab">Open Chrome Custom Tab</string>
     <string name="label_start_web_view">Open Android Web View</string>
     <string name="title_activity_crash">Crash Activity</string>
-    <string name="label_start_crash_activity">Crash This App</string>
+    <string name="label_start_crash_activity">Test WS1 Intelligence SDK</string>
     <string name="label_fatal_crash_button">Cause Fatal App Crash</string>
     <string name="label_non_fatal_crash_button">Cause Non-Fatal Handled Exception</string>
+    <string name="labal_ws1_intel_sdk_textview">Workspace ONE Intelligence SDK:</string>
 </resources>
