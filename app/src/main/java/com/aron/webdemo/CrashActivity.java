@@ -67,21 +67,25 @@ public class CrashActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void onClickStartNonFatalHandledException() {
-        Toast.makeText(this, "Handling NullPointerException now!", Toast.LENGTH_SHORT).show();
-        Log.i(TAG, "Causing NullPointerException.");
-
         try {
             // Cause and then handle a Null Pointer Exception
+            Log.i(TAG, "Causing NullPointerException.");
             Object nullObject = null;
             Objects.requireNonNull(nullObject);
         }
         catch(java.lang.NullPointerException nullPointerException) {
             if (usingIntelligenceSdk) {
+                Toast.makeText(this, "Handling NullPointerException now!", Toast.LENGTH_SHORT).show();
                 Crittercism.leaveBreadcrumb("Non-Fatal_Crash_Occurred");
                 Crittercism.endUserFlow("Crash_Activity_User_Flow");
+                Crittercism.logHandledException(nullPointerException);
                 Crittercism.sendAppLoadData();
+                Log.i(TAG, "NullPointerException handled.");
             }
-            Log.i(TAG, "NullPointerException handled.");
+            else {
+                Toast.makeText(this, "ERROR:  The Intelligence SDK is not configured.", Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 }
