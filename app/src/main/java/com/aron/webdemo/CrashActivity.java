@@ -50,19 +50,22 @@ public class CrashActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void onClickStartFatalCrash() {
-        Toast.makeText(this, "Crashing app now!", Toast.LENGTH_SHORT).show();
-        Log.w(TAG, "Causing fatal app crash due to ArrayIndexOutOfBoundsException exception.");
-
         if (usingIntelligenceSdk) {
+            Toast.makeText(this, "Crashing app now!", Toast.LENGTH_SHORT).show();
+            Log.w(TAG, "Causing fatal app crash due to ArrayIndexOutOfBoundsException exception.");
             Crittercism.leaveBreadcrumb("Fatal_Crash_Started");
             Crittercism.endUserFlow("Crash_Activity_User_Flow");
             Crittercism.sendAppLoadData();
-        }
 
-        // Cause array index out of bounds exception
-        boolean[] array = {true, false};
-        if (array[2]) {
-            Log.e(TAG, "Array index out of bounds exception did not occur");
+            // Cause array index out of bounds exception
+            boolean[] array = {true, false};
+            if (array[99]) {
+                Log.e(TAG, "Array index out of bounds exception should have occurred.");
+            }
+        }
+        else {
+            Toast.makeText(this, "ERROR:  The Intelligence SDK is not configured.  Skipping app crash.", Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "Intelligence SDK is not configured.");
         }
     }
 
@@ -84,8 +87,8 @@ public class CrashActivity extends AppCompatActivity implements View.OnClickList
             }
             else {
                 Toast.makeText(this, "ERROR:  The Intelligence SDK is not configured.", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Intelligence SDK is not configured.");
             }
-
         }
     }
 }
