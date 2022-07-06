@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.i(TAG, "Intelligence SDK Opt-Out Status: " + Crittercism.getOptOutStatus());
             Log.i(TAG, "Intelligence SDK Logcat Reporting Enabled: " + crittercismConfig.isLogcatReportingEnabled());
             Log.i(TAG, "Intelligence SDK Service Monitoring Enabled: " + crittercismConfig.isServiceMonitoringEnabled());
+            Log.i(TAG, "Intelligence SDK Service Region Lookup: " + crittercismConfig.getRegionLookup());
 
             // Set Intelligence SDK app logging level
             switch (intelligenceAppLoggingLevel) {
